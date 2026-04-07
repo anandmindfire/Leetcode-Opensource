@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Overview
-This Leetcode Opensource is a high-performance platform designed for developers to practice coding problems, execute code in real-time, and share detailed solutions. By integrating the Monaco Editor (the engine behind VS Code) and JudgeAPI, it provides a production-grade environment for mastering Data Structures and Algorithms.
+This Leetcode Opensource is a high-performance platform designed for developers to practice coding problems, execute code in real-time, and share detailed solutions. By integrating the Monaco Editor (the engine behind VS Code) and [OnlineCompiler API](https://onlinecompiler.io/docs), it provides a production-grade environment for mastering Data Structures and Algorithms.
 
 ## Table of Contents
 
@@ -19,7 +19,7 @@ This Leetcode Opensource is a high-performance platform designed for developers 
 
 - **Multi-Language Execution:** Support for **C, C++, Python, JavaScript, and Java** using a secure remote execution engine.
 - **Advanced Code Editor:** Integrated **Monaco-React Editor** providing a VS Code-like experience with syntax highlighting and indentation.
-- **Real-Time Code Running:** Leverage **JudgeAPI** to run code against test cases and receive instant feedback on performance and errors.
+- **Real-Time Code Running:** Leverage **[OnlineCompiler API](https://onlinecompiler.io/docs)** to run code against test cases and receive instant feedback on performance and errors.
 - **Solution Sharing:** A dedicated space for users to write and share their logic using **React-MD Editor** for beautiful Markdown formatting.
 - **AI Leet Bot:** A built-in chat assistant to help users brainstorm algorithms, explain time complexity, or debug code logic.
 - **Progress Tracking:** Personalized dashboard displaying the total count of solved problems and a comprehensive history of all user submissions.
@@ -31,7 +31,7 @@ This Leetcode Opensource is a high-performance platform designed for developers 
 - **Tailwind CSS:** For a sleek, responsive, and developer-centric UI/UX.
 - **MongoDB:** Database for managing users, coding problems, and shared solutions.
 - **TypeScript:** Ensuring end-to-end type safety and better developer experience.
-- **JudgeAPI:** External API for compiling and executing code in a sandboxed environment.
+- **[OnlineCompiler API](https://onlinecompiler.io/docs):** External API for compiling and executing code in a sandboxed environment.
 - **Monaco-React:** The industry-standard web code editor.
 - **React-MD Editor:** A powerful Markdown editor for community solution posts.
 - **Resend:** Professional email API for handling account verification.
@@ -68,7 +68,7 @@ The application will be accessible at http://localhost:3000.
 
 1. **Account Verification:** Sign up and verify your email through the link sent by **Resend**.
 2. **Solve Problems:** Choose a challenge, select your preferred language (C, C++, Python, JS, Java), and write code in the **Monaco Editor**.
-3. **Run & Submit:** Use the **Run** button to test your logic against sample cases via **JudgeAPI** and **Submit** to permanently save your progress and update your solved count.
+3. **Run & Submit:** Use the **Run** button to test your logic against sample cases via **[OnlineCompiler API](https://onlinecompiler.io/docs)** and **Submit** to permanently save your progress and update your solved count.
 4. **Chat with Bot:** Use the **Leet Bot** to get hints, clarify problem statements, or brainstorm logic when stuck.
 
 ### For Community & Sharing:
