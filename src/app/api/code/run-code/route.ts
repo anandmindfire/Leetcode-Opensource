@@ -6,12 +6,12 @@ import { getToken } from "next-auth/jwt";
 export async function POST(req: NextRequest) {
     const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
 
-    if (token) {
+    if (!token) {
         return NextResponse.json({
             success: false,
             message: "Unauthorized"
         }, { status: 400 });
-    }
+    }  // authentication issue 
 
     try {
         const body = await req.json();
