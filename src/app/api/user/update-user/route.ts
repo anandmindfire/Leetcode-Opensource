@@ -7,7 +7,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: NextRequest) {
     await connectToDb()
     const token = await getToken({ req, secret: process.env.NEXTAUTH_SECRET });
-    if (!token) {
+    if (!token?._id) {
         return NextResponse.json({
             success: false,
             message: "Unauthorized"
@@ -25,11 +25,14 @@ export async function POST(req: NextRequest) {
             }, { status: 400 });
         }
 
-        const updatedUser = await userModel.findByIdAndUpdate(
-            body._id || token._id,
-            body,
-            { new: true, select: '-password' }
-        );
+        const updatedUser = await userModel.findByIdAndUpdate(token._id, { $set: parsedData.data }, { new: true, select: '-password' });
+
+        if (!updatedUser) {
+            return NextResponse.json({
+                success: false,
+                message: "User not found"
+            }, { status: 404 });
+        }
 
         return NextResponse.json({
             success: true,
