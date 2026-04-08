@@ -15,7 +15,7 @@ export async function middleware(request: NextRequest) {
   }
 
   // protected route
-  if (!token && url.pathname.startsWith("/dashboard") || url.pathname.startsWith("/add-problem") || url.pathname.startsWith("/update-problem") || url.pathname.startsWith("/add-solution") || url.pathname.startsWith("/profile") || url.pathname.startsWith("/all-submissions") || url.pathname.startsWith("/submission")) {
+  if (!token && (url.pathname.startsWith("/dashboard") || url.pathname.startsWith("/add-problem") || url.pathname.startsWith("/update-problem") || url.pathname.startsWith("/add-solution") || url.pathname.startsWith("/profile") || url.pathname.startsWith("/all-submissions") || url.pathname.startsWith("/submission"))) {
     return NextResponse.redirect(new URL('/sign-in', request.url));
   }
 
