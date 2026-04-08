@@ -57,7 +57,8 @@ export async function POST(req: NextRequest) {
         let sumOfTime = 0;
         let sumOfMemory = 0;
 
-        for (let i = 0; i < apiResponse.result.length - 1; i++) {
+        //fixed the loop iteration such that last test case can be calculated 
+        for (let i = 0; i < apiResponse.result.length; i++) {
             sumOfTime += parseFloat(apiResponse.result[i].time) || 0;
             sumOfMemory += parseInt(apiResponse.result[i].memory) || 0;
             if (apiResponse.result[i].status.description !== "Accepted") {
@@ -76,7 +77,7 @@ export async function POST(req: NextRequest) {
             problemId
         });
 
-        if(!newSubmission){
+        if (!newSubmission) {
             console.log("Code Submission Failed");
             return NextResponse.json({
                 success: false,
@@ -85,7 +86,7 @@ export async function POST(req: NextRequest) {
         }
 
         const problem = await problemModel.findById(problemId);
-        if(!problem){
+        if (!problem) {
             await submissionModel.findByIdAndDelete(newSubmission._id);
 
             return NextResponse.json({
@@ -95,7 +96,7 @@ export async function POST(req: NextRequest) {
         }
 
         const user = await userModel.findById(userId);
-        if(!user){
+        if (!user) {
             await submissionModel.findByIdAndDelete(newSubmission._id);
 
             return NextResponse.json({
@@ -104,9 +105,20 @@ export async function POST(req: NextRequest) {
             }, { status: 404 });
         }
 
-        user.submissions.push(newSubmission._id);
+
+        /*PREVIOUSLY
+          user.submissions.push(newSubmission._id);
         user.solvedQuestions.push(problemId);
         user.solvedProblems = user.solvedProblems + 1;
+        await user.save(); */
+        
+        //if submission actually aceeppted upto last test case 
+        if (currentStatus === "Accepted") {
+            if (!user.solvedProblemsList.includes(problemId)) {
+                user.solvedProblemsList.push(problemId);
+                user.solvedProblems = user.solvedProblems + 1;
+            }
+        }
         await user.save();
 
         return NextResponse.json({
