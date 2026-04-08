@@ -81,7 +81,7 @@ export default function ProblemPageTestResult({ codeOutput, isCodeRunning, theme
                     </div>
                     <div className="flex gap-4 my-6">
                         {codeOutput.map((ele, index) =>
-                            <Button key={index} onClick={() => setViewTestCase(index)} variant="secondary" className={`flex items-center gap-2 px-8 py-2  cursor-pointer font-semibold ${viewTestCase === index ? '' : 'opacity-60'} ${ele.status.description === "Accepted" ? 'text-green-500' : 'text-red-400'}`}><CircleCheckBig className='resize-custom w-4' /> Case{index}</Button>
+                            <Button key={index} onClick={() => setViewTestCase(index)} variant="secondary" className={`flex items-center gap-2 px-8 py-2  cursor-pointer font-semibold ${viewTestCase === index ? '' : 'opacity-60'} ${ele.status.description === "Accepted" ? 'text-green-500' : 'text-red-400'}`}><CircleCheckBig className='resize-custom w-4' /> Case{index+1}</Button>
                         )}
                     </div>
                     <div className="">

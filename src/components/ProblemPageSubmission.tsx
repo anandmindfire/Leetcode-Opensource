@@ -83,7 +83,7 @@ export default function ProblemPageSubmission({ theme, problemInfo, setCurrentTa
           </div>
           <div className="flex items-center gap-16 w-[30rem]">
             <h3 className="px-2 py-0.5 rounded-full bg-[var(--sidebar-accent)]">{ele.language}</h3>
-            <h3 className={`flex items-center gap-1 ${theme === "dark" ? 'text-neutral-300' : ''}`}><Clock4 className='resize-custom w-4' /> {ele.status === "Accepted"? `${(ele.time / 1000).toFixed(2)} ms` : 'N/A'}</h3>
+            <h3 className={`flex items-center gap-1 ${theme === "dark" ? 'text-neutral-300' : ''}`}><Clock4 className='resize-custom w-4' /> {ele.status === "Accepted"? `${(ele.time * 1000).toFixed(2)} ms` : 'N/A'}</h3>
             <h3 className={`flex items-center gap-1 ${theme === "dark" ? 'text-neutral-300' : ''} ${ele.status === "Accepted"? 'ml-6' : 'ml-12.5'}`}><Cpu className='resize-custom w-4' /> {ele.status === "Accepted"? `${(ele.memory).toFixed(2)} MB` : 'N/A'}</h3>
           </div>
         </div>
