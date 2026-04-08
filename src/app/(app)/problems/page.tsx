@@ -49,9 +49,9 @@ export default function page() {
   const [filter, setFilter] = useState<string>("");
 
   const problemColors = {
-    "Easy": "text-red-500",
+    "Easy": "text-green-500",
     "Medium": "text-yellow-400",
-    "Hard": "text-green-500"
+    "Hard": "text-red-500"
   }
 
   type problemColorsType = keyof typeof problemColors;
