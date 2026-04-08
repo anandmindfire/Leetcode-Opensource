@@ -1,7 +1,4 @@
 import mongoose from "mongoose";
-import dns from "dns";
-
-dns.setDefaultResultOrder("ipv4first");
 
 type ConnectionObject = {
     isConnected?: number
@@ -16,10 +13,6 @@ export const connectToDb = async (): Promise<void> => {
     }
 
     try {
-
-        if(!process.env.MONGODB_URI){
-            throw new Error("MONGODB_URI not defined")
-        }
         
         const db = await mongoose.connect(process.env.MONGODB_URI || '', {
             dbName: process.env.DB_NAME
@@ -30,6 +23,6 @@ export const connectToDb = async (): Promise<void> => {
         console.log("Db connected successfully");
     } catch (error) {
         console.log("Databse connection faild: ", error);
-        throw error;
+         process.exit(1);
     }
 }
