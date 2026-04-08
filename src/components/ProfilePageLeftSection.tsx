@@ -22,7 +22,7 @@ export default function ProfilePageLeftSecond({ fullUserInfo, filterLanguageWise
     console.log(session)
 
     return (
-        <div className="customBackground w-[12%] h-full  rounded-lg px-3 py-4">
+        <div className="customBackground w-[20%] h-full  rounded-lg px-3 py-4">
             <div className="flex items-center gap-4 w-full">
                 <img src={fullUserInfo?.avatar} alt="" className='w-22 h-22 rounded-full bg-blue-500 object-cover border-2 border-white' />
                 <div className="">
